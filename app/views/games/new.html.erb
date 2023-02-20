@@ -1,0 +1,17 @@
+<div class="container-fluid" style="background-color: grey; width: 500px">
+  <h1 class="border-bottom" style="color: white">Longest Word Game</h1>
+
+  <h3 style="color: white">New Game</h3>
+  <p class="text-center border p-3" style="color: yellow"><% @letters.each do |letter| %>
+    <%= letter  %>
+  <% end %></p>
+
+  <div class="pb-3">
+    <form action="score" method="POST" data-turbo="false" >
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag 'letters', @letters %>
+      <div class="pb-3"><input type="text" name="word" class="form-control" ></div>
+      <div class="text-center"><input type="submit" value="Answer" class="btn btn-primary"></div>
+    </form>
+  </div>
+</div>
